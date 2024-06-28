@@ -1,7 +1,7 @@
 # Cliente (client.py)
 import xmlrpc.client
 
-proxy = xmlrpc.client.ServerProxy("http://localhost:8000/")
+proxy = xmlrpc.client.ServerProxy("http://192.168.0.115:8000/")
 local_time = 0
 
 # Simulação de eventos
