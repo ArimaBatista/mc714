@@ -24,6 +24,7 @@ while(0 == 0):
   t = input("evento")
   print("Tempo lógico após evento local:", local_time)
   remote_time = proxy.update_time(local_time)  # Envio de mensagem
+  print("Tempo lógico recebido pelo servidor:", remote_time)
   local_time = max(local_time, remote_time) + 1
   print("Tempo lógico após envio de mensagem:", local_time)
 
