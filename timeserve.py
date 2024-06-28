@@ -13,7 +13,7 @@ def increment_local_time():
     global local_time
     while True:
         time.sleep(1)  # Espera 1 segundo
-        local_time += 1
+        local_time += 10
 
 local_time = 0  # Inicialização do tempo lógico local
 
