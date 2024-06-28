@@ -7,7 +7,7 @@ def update_time(remote_time):
 
 local_time = 0  # Inicialização do tempo lógico local
 
-server = SimpleXMLRPCServer(("localhost", 8000))
+server = SimpleXMLRPCServer(("192.168.0.115", 8000))
 server.register_function(update_time, "update_time")
 server.serve_forever()
 
