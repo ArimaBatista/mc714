@@ -30,6 +30,9 @@ class ExclusaoMutuaServer:
             return False
 
 server = SimpleXMLRPCServer(("192.168.0.115", 8000))
+
 server.register_instance(ExclusaoMutuaServer())
+
+
 print("Servidor de Exclusão Mútua em execução na porta 8000")
 server.serve_forever()
