@@ -2,7 +2,7 @@ from xmlrpc.server import SimpleXMLRPCServer
 from xmlrpc.client import ServerProxy
 import re
 
-endereco_ip =#localhost ["http://192.168.0.115:8000", "http://192.168.0.116:8000", "http://192.168.0.118:8000"]
+endereco_ip = "192.168.0.118"
 
 # Lista de clientes e líder
 client = []
@@ -23,7 +23,7 @@ def registro(client_id):
 def obter_lider():
     global lider
     try:
-        p = f"http://{lider}:8080"
+        p = f"http://{lider}:8000"
         serve = ServerProxy(p)
         verifica = serve.ativo()
         if verifica == "ativo":
@@ -45,7 +45,7 @@ def eleicao():
         y = int(y)
         if y > id:
             try:
-                p = f"http://{x}:8080"
+                p = f"http://{x}:8000"
                 serve = ServerProxy(p)
                 verifica = serve.ativo()
                 if verifica == "ativo":
