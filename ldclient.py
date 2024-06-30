@@ -1,9 +1,6 @@
 from xmlrpc.client import ServerProxy
-import socket
 
-# Obter o endereço IP do host local
-hostname = socket.gethostname()
-endereco_ip = socket.gethostbyname(hostname)
+endereco_ip = ["http://192.168.0.115:8000", "http://192.168.0.116:8000", "http://192.168.0.118:8000"]
 
 # Lista de endereços do servidor
 end_serve = ["http://192.168.0.115:8000", "http://192.168.0.116:8000", "http://192.168.0.118:8000"]
