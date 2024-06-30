@@ -62,7 +62,7 @@ print(f"Servidor em execução no endereço {endereco_ip}:8000")
 # Registrar funções no servidor
 server.register_function(ativo, "ativo")
 server.register_function(registro, "registro")
-server.register_function(obter_lider, "lider")
+server.register_function(obter_lider, "obter_lider")
 server.register_function(eleicao, "eleicao")
 
 # Iniciar o servidor
