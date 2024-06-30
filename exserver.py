@@ -22,7 +22,6 @@ class ExclusaoMutuaServer:
         Método para liberar o recurso.
         Retorna True se o cliente possuía o recurso e o liberou com sucesso, False caso contrário.
         """
-        print(f"Cliente que possui o recurso: {self.client_id}")
         if self.flag and self.client_id == client_id:
             self.flag = False
             self.client_id = None
