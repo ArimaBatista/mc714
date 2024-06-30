@@ -34,7 +34,9 @@ class ExclusaoMutuaCliente:
         return "meu_id_unico"  # Substitua por sua lógica de geração de ID
 
 # Exemplo de uso
-cliente = ExclusaoMutuaCliente("192.168.0.115", 8000)
-cliente.solicitar_recurso()
-# ... (seções críticas do seu código aqui)
-cliente.liberar_recurso()
+cliente = ExclusaoMutuaCliente("http://192.168.0.115:8000")
+while (0==0):
+    t = input("Pegar Recurso")
+    cliente.solicitar_recurso()
+    t = input("Liberar Recurso")
+    cliente.liberar_recurso()
