@@ -43,6 +43,7 @@ def eleicao():
     for x in lista:
         y = re.sub(r'[^0-9]', '', x)
         y = int(y)
+        print(x)
         if y > id:
             try:
                 p = f"http://{x}:8000"
