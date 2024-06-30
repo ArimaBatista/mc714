@@ -3,11 +3,7 @@ import uuid
 
 client_id = str(uuid.uuid1())
 
-class ExclusaoMutuaCliente:
-    def __init__(self, server_address):
-        self.server = ServerProxy(server_address)
-
-    def solicitar_recurso(self):
+def solicitar_recurso(self):
         # Tenta pegar o recurso
         resultado = self.server.solicitar_recurso(client_id)
         if resultado:
@@ -16,7 +12,7 @@ class ExclusaoMutuaCliente:
             print(f"Cliente {client_id} não obteve o recurso. Recurso em uso.")
         return resultado
 
-    def liberar_recurso(self):
+def liberar_recurso(self):
         # Tenta liberar o recurso
         resultado = self.server.liberar_recurso(client_id)
         if resultado:
@@ -24,9 +20,13 @@ class ExclusaoMutuaCliente:
         else:
             print(f"Cliente {client_id} não pôde liberar o recurso. Possível erro.")
 
-cliente = ExclusaoMutuaCliente("http://192.168.0.115:8000")
+
+end_serve = "http://192.168.0.115:8000"
+
+self.server = ServerProxy(end_serve)
+
 while True:
     input("Pegar Recurso")
-    cliente.solicitar_recurso()
+    solicitar_recurso(end_serve)
     input("Liberar Recurso")
-    cliente.liberar_recurso()
+    liberar_recurso(end_serve)
