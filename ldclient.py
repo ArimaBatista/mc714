@@ -9,6 +9,7 @@ endereco_ip = socket.gethostbyname(hostname)
 end_serve = ["http://192.168.0.115:8000", "http://192.168.0.116:8000", "http://192.168.0.118:8000"]
 
 while True:
+    t = input("atualiar?")
     for x in end_serve:
         try:
             serve = ServerProxy(x)
