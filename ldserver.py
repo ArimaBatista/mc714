@@ -1,11 +1,8 @@
 from xmlrpc.server import SimpleXMLRPCServer
 from xmlrpc.client import ServerProxy
-import socket
 import re
 
-# Obter o endereço IP do host local
-hostname = socket.gethostname()
-endereco_ip = socket.gethostbyname(hostname)
+endereco_ip =#localhost ["http://192.168.0.115:8000", "http://192.168.0.116:8000", "http://192.168.0.118:8000"]
 
 # Lista de clientes e líder
 client = []
