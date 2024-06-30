@@ -38,6 +38,7 @@ class ExclusaoMutuaCliente:
 cliente = ExclusaoMutuaCliente("http://192.168.0.115:8000")
 while (0==0):
     t = input("Pegar Recurso")
-    cliente.solicitar_recurso()
-    t = input("Liberar Recurso")
-    cliente.liberar_recurso()
+    saida = cliente.solicitar_recurso()
+    if saida:
+        t = input("Liberar Recurso")
+        cliente.liberar_recurso()
