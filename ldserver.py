@@ -27,7 +27,10 @@ def obter_lider():
             p = f"http://{lider}:8000"
             serve = ServerProxy(p)
             verifica = serve.ativo()
-        if verifica == "ativo":
+            if verifica == "ativo":
+                return lider
+        else:
+            eleicao()
             return lider
     except:
         eleicao()
