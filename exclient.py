@@ -1,4 +1,5 @@
 from xmlrpc.client import ServerProxy
+import uuid
 
 class ExclusaoMutuaCliente:
     def __init__(self, server_address):
@@ -29,9 +30,9 @@ class ExclusaoMutuaCliente:
             print(f"Cliente {client_id} não pôde liberar o recurso. Possível erro.")
 
     def get_client_id(self):
-        # Implemente a lógica para gerar um ID único para o cliente
-        # (pode ser um UUID, um número sequencial, etc.)
-        return "meu_id_unico"  # Substitua por sua lógica de geração de ID
+        # Gera um UUID baseado no endereço MAC da máquina
+        unique_id = uuid.uuid1()
+        return str(unique_id)
 
 # Exemplo de uso
 cliente = ExclusaoMutuaCliente("http://192.168.0.115:8000")
