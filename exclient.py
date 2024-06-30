@@ -3,9 +3,9 @@ import uuid
 
 client_id = str(uuid.uuid1())
 
-def solicitar_recurso(self):
+def solicitar_recurso(serve):
         # Tenta pegar o recurso
-        resultado = self.server.solicitar_recurso(client_id)
+        resultado = server.solicitar_recurso(client_id)
         if resultado:
             print(f"Cliente {client_id} obteve o recurso.")
         else:
@@ -14,7 +14,7 @@ def solicitar_recurso(self):
 
 def liberar_recurso(self):
         # Tenta liberar o recurso
-        resultado = self.server.liberar_recurso(client_id)
+        resultado = server.liberar_recurso(client_id)
         if resultado:
             print(f"Cliente {client_id} liberou o recurso.")
         else:
@@ -23,10 +23,10 @@ def liberar_recurso(self):
 
 end_serve = "http://192.168.0.115:8000"
 
-self.server = ServerProxy(end_serve)
+server = ServerProxy(end_serve)
 
 while True:
     input("Pegar Recurso")
-    solicitar_recurso(end_serve)
+    solicitar_recurso(serve)
     input("Liberar Recurso")
-    liberar_recurso(end_serve)
+    liberar_recurso(serve)
