@@ -11,7 +11,7 @@ while True:
         try:
             serve = ServerProxy(x)
             serve.registro(endereco_ip)
-            dado = serve.lider()
+            dado = serve.obter_lider()
             print(f"Líder do servidor {x} é {dado}")
         except Exception as e:
             print(f"Servidor {x} está desativado. Erro: {e}")
