@@ -9,52 +9,54 @@ client = []
 lider = None
 
 def ativo():
-    return "ativo"
+	return "ativo"
 
 def registro(client_id):
-    global client
-    if client_id not in client:
-        client.append(client_id)
-        eleicao()
-        return "usuario registrado"
-    else:
-        return "usuario ja registrado"
+	global client
+	if client_id not in client:
+    	client.append(client_id)
+    	eleicao()
+    	return "usuario registrado"
+	else:
+    	return "usuario ja registrado"
 
 def obter_lider():
-    global lider
-    try:
-        p = f"http://{lider}:8000"
-        serve = ServerProxy(p)
-        verifica = serve.ativo()
-        if verifica == "ativo":
-            return lider
-    except:
-        eleicao()
-    return lider
+	global lider
+	global endereco_ip
+	try:
+    	if lider != endereco_ip:
+        	p = f"http://{lider}:8000"
+        	serve = ServerProxy(p)
+        	verifica = serve.ativo()
+        	if verifica == "ativo":
+            	return lider
+    	else:
+        	return lider
+	except:
+    	eleicao()
+	return lider
 
 def eleicao():
-    global client
-    global endereco_ip
-    global lider
-    id = re.sub(r'[^0-9]', '', endereco_ip)
-    id = int(id)
-    lista = sorted(client)
-    lider = endereco_ip
-    for x in lista:
-        y = re.sub(r'[^0-9]', '', x)
-        y = int(y)
-        print(x)
-        if y > id:
-            try:
-                p = f"http://{x}:8000"
-                serve = ServerProxy(p)
-                verifica = serve.ativo()
-                if verifica == "ativo":
-                    lider = x
-                    break
-            except:
-                client.remove(x)
-    return lider
+	global client
+	global endereco_ip
+	global lider
+	id = re.sub(r'[^0-9]', '', endereco_ip)
+	id = int(id)
+	lista = sorted(client)
+	lider = endereco_ip
+	for x in lista:
+    	y = re.sub(r'[^0-9]', '', x)
+    	y = int(y)
+    	if y > id:
+        	try:
+            	p = f"http://{x}:8000"
+            	serve = ServerProxy(p)
+            	verifica = serve.ativo()
+            	if verifica == "ativo":
+                	lider = x
+        	except:
+            	client.remove(x)
+	return lider
 
 # Criar o servidor XML-RPC
 server = SimpleXMLRPCServer((endereco_ip, 8000))
@@ -68,3 +70,4 @@ server.register_function(eleicao, "eleicao")
 
 # Iniciar o servidor
 server.serve_forever()
+
