@@ -18,9 +18,10 @@ def registro(client_id):
     global client
     if client_id not in client:
         client.append(client_id)
-        return "adicionado"
+        eleicao()
+        return client
     else:
-        return "ja presente"
+        return client
 
 def obter_lider():
     global lider
