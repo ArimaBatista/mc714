@@ -23,9 +23,10 @@ def registro(client_id):
 def obter_lider():
     global lider
     try:
-        p = f"http://{lider}:8000"
-        serve = ServerProxy(p)
-        verifica = serve.ativo()
+        if lider != None:
+            p = f"http://{lider}:8000"
+            serve = ServerProxy(p)
+            verifica = serve.ativo()
         if verifica == "ativo":
             return lider
     except:
