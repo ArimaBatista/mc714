@@ -16,9 +16,9 @@ def registro(client_id):
     if client_id not in client:
         client.append(client_id)
         eleicao()
-        return client
+        return "usuario registrado"
     else:
-        return client
+        return "usuario ja registrado"
 
 def obter_lider():
     global lider
