@@ -5,7 +5,7 @@ import re
 endereco_ip = "192.168.0.118"
 
 # Lista de clientes e líder
-client = []
+client = ["http://192.168.0.115:8000", "http://192.168.0.116:8000", "http://192.168.0.118:8000"]
 lider = None
 
 def ativo():
