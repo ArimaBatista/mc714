@@ -48,8 +48,6 @@ def eleicao():
         y = re.sub(r'[^0-9]', '', x)
         y = int(y)
         y = y // 10000
-    	print(y)
-    	print(id)
     	if y > id:
         	try:
             	serve = ServerProxy(x)
