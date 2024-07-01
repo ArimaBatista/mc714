@@ -38,12 +38,9 @@ def eleicao():
         y = re.sub(r'[^0-9]', '', x)
         y = int(y) // 10000
         if id < y:
-            print("tttt")
             try:
-                print("retsert")
                 serve = ServerProxy(x)
                 verifica = serve.ativo()
-                print("sr")
                 if verifica == "ativo":
                     lider = x
             except:
