@@ -208,5 +208,57 @@ def eleicao():
             lider = "http://"+endereco_ip+":8000"
     return lider
 ```
+usei tambem  abiblioteca [re](https://docs.python.org/3/library/re.html) para manipular variaveis
 [Link para o codigo completo](https://github.com/ArimaBatista/mc714/blob/main/liderserver.py)
+
+## Testes Realiados:
+
+# Relogio Lamporte
+
+Para tal usei duas maquinas virtuas uma servindo como servidor e outra como cliente e deixei propositalmente o relogio do servidor 10x masi papido para visualiar o as atualiações do relogio do cliente 
+![image](https://github.com/ArimaBatista/mc714/assets/80778627/f8316bd6-c0ea-430c-8114-7eaa105cb85d)
+podemos visualiar claramente o relogio do clinte se atualiando após a troca das mensagens
+
+# Exclusão Multua
+
+para isso usei 2 Maquians virtuais uma servindo de cliente e servidor e outra de cliente
+![image](https://github.com/ArimaBatista/mc714/assets/80778627/3d1d0d72-2189-4809-998c-c7343e96ad6d)
+
+podemos visualiar que enquanto uma estava com recurso a outra não conseguia pegar o recurso enquanto a outra não a liberasse e que a qual não estavas com o recurso não conseguia não conseguia liberar o recurso que não ela dela.
+
+# Algoritmo de Eleição de Lider
+
+Para esse problema criei 3 maquiuans Virtuais todas como Servidor e Cliente para visualiar se o havia consenso entre lider quando uma estava ativa duas e tres ativas e quando havia uma falha da lider se outra tomava o lugar de lider e quando o lider voltava a ativa podemos visualiar oque aconteceu nas fostos que estarão em ordem cronologica respectivamente ativando na ordem de final de ip 115 118 e 116 respectivamente:
+ligando o serve de ip final 115:
+![image](https://github.com/ArimaBatista/mc714/assets/80778627/0b415134-8777-49d9-8223-f14a7faa75af)
+ligando o serve de final 118:
+![image](https://github.com/ArimaBatista/mc714/assets/80778627/860f8d3c-1ff3-40ed-8136-d1ecdfdcf930)
+podemos ver que ja atualiou o lider
+
+ligando o serve de final 116:
+![image](https://github.com/ArimaBatista/mc714/assets/80778627/473b1058-e088-46fa-99c7-4efe703a1d69)
+que não toma o lugar de lider pelo seu endereço ip
+
+Queda do servidor lider:
+![image](https://github.com/ArimaBatista/mc714/assets/80778627/9be205a0-42c1-47cd-8ca0-e5888dead28b)
+onde o serve 116 toma o lugar do lider
+
+volta do servidor 118:
+![image](https://github.com/ArimaBatista/mc714/assets/80778627/201e909d-fb0e-4fbf-833f-93f3a4fe9d1a)
+tomando o posto de lider
+
+
+
+Fontes
+- https://docs.python.org/pt-br/3/library/xmlrpc.client.html#module-xmlrpc.client
+- https://docs.python.org/pt-br/3/library/xmlrpc.server.html#module-xmlrpc.server
+- https://pt.wikipedia.org/wiki/XML-RPC
+- https://pt.wikipedia.org/wiki/Rel%C3%B3gios_de_Lamport
+- https://angelicaribeirodotcom.wordpress.com/2017/09/02/sistemas-distribuidos/?irclickid=xSSQvCzCXxyKReH2wizkux6LUkC0re2W9whOTA0&sharedid=234017&irpid=123201&utm_source=impact&utm_medium=affiliate&irgwc=1
+- https://docs.python.org/3/library/threading.html
+- https://docs.python.org/3/library/time.html
+- https://docs.python.org/3/library/re.html
+- https://pt.wikipedia.org/wiki/Exclus%C3%A3o_m%C3%BAtua
+- https://pt.wikipedia.org/wiki/Elei%C3%A7%C3%A3o_de_l%C3%ADder#:~:text=Algoritmo%20em%20anel&text=A%20execu%C3%A7%C3%A3o%20do%20algoritmo%20busca,n%C3%B3%20ao%20vizinho%20da%20direita.
+- https://chatgpt.com/
 
