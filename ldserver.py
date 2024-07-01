@@ -56,7 +56,7 @@ def eleicao():
                 if verifica == "ativo":
                     lider = x
             except:
-                client.remove(x)
+                print("server off")
         if y == id:
             lider = "http://"+endereco_ip+":8000"
     return lider
