@@ -216,7 +216,7 @@ usei tambem  abiblioteca [re](https://docs.python.org/3/library/re.html) para ma
 
 # Relogio Lamporte
 
-Para tal usei duas maquinas virtuas uma servindo como servidor e outra como cliente e deixei propositalmente o relogio do servidor 10x masi papido para visualiar o as atualiações do relogio do cliente 
+Para tal usei duas maquinas virtuas uma servindo como servidor e outra como cliente e deixei propositalmente o relogio do servidor 10x mais rapido para visualiar o as atualiações do relogio do cliente 
 ![image](https://github.com/ArimaBatista/mc714/assets/80778627/f8316bd6-c0ea-430c-8114-7eaa105cb85d)
 podemos visualiar claramente o relogio do clinte se atualiando após a troca das mensagens
 
