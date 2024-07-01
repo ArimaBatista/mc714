@@ -77,7 +77,8 @@ parra ver os codigos completos pode clicar em [Cliente](https://github.com/Arima
 
 ### Agoritmo de Exclusão Multua
 Exclusão mútua (também conhecida pelo acrônimo mutex para mutual exclusion, o termo em inglês) é uma técnica usada em programação concorrente para evitar que dois processos ou threads tenham acesso simultaneamente a um recurso compartilhado, acesso esse denominado por seção crítica.[wikipedia](https://pt.wikipedia.org/wiki/Exclus%C3%A3o_m%C3%BAtua)
-Para implementar esse algortmo podemos criar uma flag que representa a "chave" para pegar o recurso sinalia que pegou e da seu endereço de ip para saber quem tem direto de devolver a "chave" e alterar o recurso e apartir que ele pega a chave ele bloqueia outros de pegarem a chave
+
+Para implementar esse algortmo podemos criar uma flag que representa a "chave" para pegar o recurso avisa que pegou e da seu endereço de ip para saber quem tem direto de devolver a "chave" e alterar o recurso e apartir que ele pega a chave ele bloqueia outros de pegarem a chave
 no Servidor:
 [link para codigo completo](https://github.com/ArimaBatista/mc714/blob/main/exclusaoserver.py)
 ```
