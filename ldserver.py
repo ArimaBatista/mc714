@@ -11,15 +11,6 @@ lider = 0
 def ativo():
     return "ativo"
 
-def registro(client_id):
-    global client
-    if client_id not in client:
-        client.append(client_id)
-        eleicao()
-        return "usuario registrado"
-    else:
-        return "usuario ja registrado"
-
 def obter_lider():
     global lider
     global endereco_ip
