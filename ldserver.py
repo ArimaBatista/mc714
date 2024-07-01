@@ -2,7 +2,7 @@ from xmlrpc.server import SimpleXMLRPCServer
 from xmlrpc.client import ServerProxy
 import re
 
-endereco_ip = "192.168.0.118"
+endereco_ip = "192.168.0.115"
 
 # Lista de clientes e líder
 client = ["http://192.168.0.115:8000", "http://192.168.0.116:8000", "http://192.168.0.118:8000"]
@@ -41,25 +41,29 @@ def eleicao():
     global endereco_ip
     global lider
     id = re.sub(r'[^0-9]', '', endereco_ip)
-    id = int(id) // 10000
+    id = int(id)
     lista = sorted(client)
-    lider = endereco_ip
     for x in lista:
         y = re.sub(r'[^0-9]', '', x)
         y = int(y) // 10000
-        if y > id:
+        if id < y:
+            print("tttt")
             try:
+                print("retsert")
                 serve = ServerProxy(x)
                 verifica = serve.ativo()
+                print("sr")
                 if verifica == "ativo":
                     lider = x
             except:
                 client.remove(x)
+        if y == id:
+            lider = "http://"+endereco_ip+":8000"
     return lider
 
 # Criar o servidor XML-RPC
 server = SimpleXMLRPCServer((endereco_ip, 8000))
-print(f"Servidor em execução no endereço {endereco_ip}:8000")
+print(f"Servidor em execução no endereço {endereco_ip}")
 
 # Registrar funções no servidor
 server.register_function(ativo, "ativo")
