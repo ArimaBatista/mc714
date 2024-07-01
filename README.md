@@ -137,4 +137,76 @@ def liberar_recurso():
 ### Algoritimo de Eleição de Lider
 Eleição de líder é um problema da área de sistemas distribuídos que busca selecionar de forma consensual um processo num conjunto de processos tendo como objetivo selecionar um líder para uma determinada tarefa. A eleição torna-se necessária quando o sistema distribuído está sendo iniciado pela primeira vez ou o líder anterior não consegue se comunicar com os demais processos pela ocorrência de alguma falha. Há vários algoritmos que realizam a eleição do líder, cada um específico a alguma situação.[wikipedia](https://pt.wikipedia.org/wiki/Elei%C3%A7%C3%A3o_de_l%C3%ADder#:~:text=Algoritmo%20em%20anel&text=A%20execu%C3%A7%C3%A3o%20do%20algoritmo%20busca,n%C3%B3%20ao%20vizinho%20da%20direita.)
 
-Esse algoritmo é o masi complexo porque exige a troca de informação attiva ente todos os nós da rede, vamos começar pensando nisso
+Esse algoritmo é o masi complexo porque exige a troca de informação attiva ente todos os nós da rede, vamos começar pensando nisso logo no cliente[link para o codigo completo](https://github.com/ArimaBatista/mc714/blob/main/liderclient.py) vamos implementar uma funcão que verifica quais nos estão ativos e quais não estão para facilitar a nossa vida ele ja vai aproveitar e pergunta quem é o lider para que o usuario tenha confirmação visual que é o mesmo lider em todos os ativos:
+```
+endereco_ip =#localhost ["http://192.168.0.115:8000", "http://192.168.0.116:8000", "http://192.168.0.118:8000"]
+
+# Lista de endereços do servidor
+end_serve = ["http://192.168.0.115:8000", "http://192.168.0.116:8000", "http://192.168.0.118:8000"]
+
+while True:
+    t = input("atualiar?")
+    for x in end_serve:
+        try:
+            serve = ServerProxy(x)
+            dado = serve.obter_lider()
+            print(f"Líder do servidor {x} é {dado}")
+        except Exception as e:
+            print(f"Servidor {x} está desativado. Erro: {e}")
+```
+
+Agora vamos  pensar em como o servidor confirma se o lider esta ativo caso ele não esteja vai ter que chamar uma eleição:
+
+```
+endereco_ip = "192.168.0.115"
+
+# Lista de clientes e líder
+client = ["http://192.168.0.115:8000", "http://192.168.0.116:8000", "http://192.168.0.118:8000"]
+lider = 0
+
+def ativo():
+    return "ativo"
+
+def obter_lider():
+    global lider
+    global endereco_ip
+    try:
+        if lider != endereco_ip:
+            p = f"http://{lider}:8000"
+            serve = ServerProxy(p)
+            verifica = serve.ativo()
+            if verifica == "ativo":
+                return lider
+        else:
+            return lider
+    except:
+        eleicao()
+    return lider
+
+```
+Vamos pensar como funciona a eleição que ocorre da segunte maneireira; ao detectar que o servidor lider não responde ele tenta chamar os nos que tem ip maior que o dele caso não tenha ninguem ou que nao tenha resposta ele se declara o lider caso um maior responda ele sera o lider até que chegue alguem maior, cale ressaltar que se um maior volta a responder ele toma o comando:
+```
+def eleicao():
+    global client
+    global endereco_ip
+    global lider
+    id = re.sub(r'[^0-9]', '', endereco_ip)
+    id = int(id)
+    lista = sorted(client)
+    for x in lista:
+        y = re.sub(r'[^0-9]', '', x)
+        y = int(y) // 10000
+        if id < y:
+            try:
+                serve = ServerProxy(x)
+                verifica = serve.ativo()
+                if verifica == "ativo":
+                    lider = x
+            except:
+                print("server off")
+        if y == id:
+            lider = "http://"+endereco_ip+":8000"
+    return lider
+```
+[Link para o codigo completo](https://github.com/ArimaBatista/mc714/blob/main/liderserver.py)
+
