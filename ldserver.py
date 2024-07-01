@@ -41,16 +41,15 @@ def eleicao():
     global endereco_ip
     global lider
     id = re.sub(r'[^0-9]', '', endereco_ip)
-    id = int(id)
+    id = int(id) // 10000
     lista = sorted(client)
     lider = endereco_ip
     for x in lista:
         y = re.sub(r'[^0-9]', '', x)
-        y = int(y)
-        y = y // 10000
-    	if y > id:
-        	try:
-            	serve = ServerProxy(x)
+        y = int(y) // 10000
+        if y > id:
+            try:
+                serve = ServerProxy(x)
                 verifica = serve.ativo()
                 if verifica == "ativo":
                     lider = x
