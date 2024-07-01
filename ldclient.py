@@ -10,8 +10,6 @@ while True:
     for x in end_serve:
         try:
             serve = ServerProxy(x)
-            dado =serve.registro(endereco_ip)
-            print(dado)
             dado = serve.obter_lider()
             print(f"Líder do servidor {x} é {dado}")
         except Exception as e:
