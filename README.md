@@ -60,7 +60,7 @@ increment_thread.daemon = True
 increment_thread.start()
 ```
 onde o [time](https://docs.python.org/3/library/time.html) fica responsael para contar o tempo e o [thearding](https://docs.python.org/3/library/threading.html) para que o relogio funcione em segundo plano
-sabendo disso bastaimplementar que envia seu relogio e que recebe e compara com seu relogio e incorpora o maior e o incrementa como
+sabendo disso basta implementar que envia seu relogio e que recebe e compara com seu relogio e incorpora o maior e o incrementa como
 ```
 #no server
 # Função que atualiza o tempo lógico
