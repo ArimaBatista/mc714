@@ -6,7 +6,7 @@ endereco_ip = "192.168.0.118"
 
 # Lista de clientes e líder
 client = ["http://192.168.0.115:8000", "http://192.168.0.116:8000", "http://192.168.0.118:8000"]
-lider = None
+lider = 0
 
 def ativo():
     return "ativo"
@@ -47,10 +47,12 @@ def eleicao():
     for x in lista:
         y = re.sub(r'[^0-9]', '', x)
         y = int(y)
-        if y > id:
-            try:
-                p = f"http://{x}:8000"
-                serve = ServerProxy(p)
+        y = y // 10000
+    	print(y)
+    	print(id)
+    	if y > id:
+        	try:
+            	serve = ServerProxy(x)
                 verifica = serve.ativo()
                 if verifica == "ativo":
                     lider = x
