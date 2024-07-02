@@ -261,5 +261,4 @@ Fontes
 - https://docs.python.org/3/library/re.html
 - https://pt.wikipedia.org/wiki/Exclus%C3%A3o_m%C3%BAtua
 - https://pt.wikipedia.org/wiki/Elei%C3%A7%C3%A3o_de_l%C3%ADder#:~:text=Algoritmo%20em%20anel&text=A%20execu%C3%A7%C3%A3o%20do%20algoritmo%20busca,n%C3%B3%20ao%20vizinho%20da%20direita.
-- https://chatgpt.com/
 
